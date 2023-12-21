@@ -4,7 +4,7 @@
       <img class="nav__logo" src="@/assets/Pandi_Logo.png" alt="Pandi logo">
       <div class="nav__list">
         <router-link class="nav__list-item" to="/">{{ home }}</router-link>
-        <router-link class="nav__list-item" to="/shop">{{ shop }}</router-link>
+        <router-link class="nav__list-item" to="/product">{{ shop }}</router-link>
         <router-link class="nav__list-item" to="/login">{{ profile }}</router-link>
       </div>
       <div class="nav__symbols">

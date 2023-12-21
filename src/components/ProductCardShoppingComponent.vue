@@ -2,25 +2,25 @@
   <div class="product-card-shopping">
     <div class="cart-item">
       <!--          <img src="item1.jpg" alt="Item 1">-->
-      <img src="@/assets/images/Panda1.jpeg" alt="Item 1">
+      <img src="@/assets/Panda1.jpeg" alt="Item 1">
       <div class="cart-item-info">
         <div class="item-details">
           <p class="item-details-title">Item 1</p>
           <p class="item-details-price">Price: $20.00</p>
         </div>
-        <button class="card-item-info-button" @click="removeItem(1)">Remove</button>
+        <button class="card-item-info-button" @click="removeItem(1)">{{ remove }}</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import json from '@/assets/data/products.json'
-
+import {useProductStore} from '@/stores/products.js'
 export default {
   data() {
     return {
-      products: json.products
+      products: useProductStore(),
+      remove: 'Remove'
       /*productTitle: 'products.title',
       productPrice: 'products.title',
       productCheck: 'Check it out'*/

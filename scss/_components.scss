@@ -1,0 +1,216 @@
+@use 'base' as *;
+
+.header__banner__brand {
+  @include positioning(25%);
+  @include textAlign();
+  font-size: 85px;
+}
+
+.home__button {
+  height: 55px;
+  margin: 0 10px;
+  width: 230px;
+  font-size: 19px;
+  color: $tertiary-color;
+  background-color: $secundary-color;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    background-color: $tertiary-color;
+    color: $secundary-color;
+  }
+}
+
+.selection__button {
+  border: none;
+  background: none;
+  color: $primary-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size;
+  margin: 15px 35px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: $tertiary-color;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background-color: $tertiary-color;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+}
+
+.newAcc__button {
+  border: none;
+  background: none;
+  color: $primary-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size;
+  margin: 15px 35px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: $tertiary-color;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background-color: $tertiary-color;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+}
+
+.forgotAcc__button {
+  border: none;
+  background: none;
+  color: $primary-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size;
+  margin: 15px 35px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: $tertiary-color;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background-color: $tertiary-color;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+}
+
+.active-btn {
+  color: $tertiary-color;
+
+  &:after {
+    width: 100%;
+  }
+}
+
+.shop__item__info__button {
+  margin: 20px;
+  height: 55px;
+  width: calc(400px - 40px);
+  border-radius: 25px;
+  font-size: 19px;
+  color: $primary-color;
+  text-decoration: none;
+  border: 2px solid $tertiary-color;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: $tertiary-color;
+    color: $secundary-color;
+  }
+}
+
+.card-item-info-button {
+  margin: 20px 20px 20px 0;
+  height: 55px;
+  width: 200px;
+  border-radius: 25px;
+  font-size: 19px;
+  color: $secundary-color;
+  text-decoration: none;
+  border: 2px solid $tertiary-color;
+  background-color: $tertiary-color;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+
+  &:hover {
+    background-color: $secundary-color;
+    color: $primary-color;
+  }
+}
+
+.card-item-info-button {
+  margin: 20px 20px 20px 0;
+  height: 55px;
+  width: 200px;
+  border-radius: 25px;
+  font-size: 19px;
+  color: $secundary-color;
+  text-decoration: none;
+  border: 2px solid $tertiary-color;
+  background-color: $tertiary-color;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+
+  &:hover {
+    background-color: $secundary-color;
+    color: $primary-color;
+  }
+}
+/*
+button {
+  background-color: $tertiary-color;
+  color: $secundary-color;
+  padding: 10px;
+  font-size: $font-size;
+  margin: 20px 20px 20px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    background-color: $secundary-color;
+    color: $tertiary-color;
+  }
+}*/

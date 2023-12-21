@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Panda cartoon sitting",
       "description": "A cute cartoon panda sitting.",
-      "image": "../src/assets/images/Panda1.jpeg",
+      "image": "../src/assets/Panda1.jpeg",
       "price": 19.99,
       "vat": 0.21,
       "stock": 50
@@ -13,7 +13,7 @@
       "id": 2,
       "title": "Panda cartoon standing",
       "description": "A cute cartoon panda standing.",
-      "image": "../src/assets/images/Panda2.jpeg",
+      "image": "../src/assets/Panda2.jpeg",
       "price": 19.99,
       "vat": 0.21,
       "stock": 50
@@ -22,7 +22,7 @@
       "id": 3,
       "title": "Panda cartoon bamboo #1",
       "description": "A cartoon of a panda hanging on bamboo. #1 of the series.",
-      "image": "../src/assets/images/Panda3.jpeg",
+      "image": "../src/assets/Panda3.jpeg",
       "price": 19.99,
       "vat": 0.21,
       "stock": 50
@@ -31,7 +31,7 @@
       "id": 4,
       "title": "Panda cartoon bamboo #2",
       "description": "A cartoon of a panda hanging on bamboo. #2 of the series.",
-      "image": "../src/assets/images/Panda4.jpeg",
+      "image": "../src/assets/Panda4.jpeg",
       "price": 19.99,
       "vat": 0.21,
       "stock": 50
@@ -40,7 +40,7 @@
       "id": 5,
       "title": "Panda cartoon playing",
       "description": "A cartoon of a panda playing with bamboo.",
-      "image": "../src/assets/images/Panda5.jpeg",
+      "image": "../src/assets/Panda5.jpeg",
       "price": 19.99,
       "vat": 0.21,
       "stock": 50
@@ -49,7 +49,7 @@
       "id": 6,
       "title": "Panda cartoon looking",
       "description": "A cartoon of a panda looking while sitting on the ground.",
-      "image": "../src/assets/images/Panda6.jpeg",
+      "image": "../src/assets/Panda6.jpeg",
       "price": 19.99,
       "vat": 0.21,
       "stock": 50

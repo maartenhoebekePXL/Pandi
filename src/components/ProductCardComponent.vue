@@ -18,12 +18,13 @@
 </template>
 
 <script>
-import json from '@/assets/data/products.json'
+// import {useProductStore} from '@/stores/products.js'
+import productsJson from '@/data/products.json'
 
 export default {
   data() {
     return {
-      products: json.products,
+      products: productsJson.products,
       productCheck: 'Check it out'
     }
   }

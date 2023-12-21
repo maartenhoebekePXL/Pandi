@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       cartTitle: 'Shopping Cart',
-      cartP: 'Last step before joining the pandi army!'
+      cartP: 'Last step before becoming part of the pandi army!'
     }
   },
   methods: {
