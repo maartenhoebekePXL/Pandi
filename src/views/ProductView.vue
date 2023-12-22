@@ -16,25 +16,31 @@
           filterButton[0].toUpperCase() + filterButton.slice(1)
         }}
       </button>
-<!--      <button type="button" class="selection__button" v-for="filterButton in allFilters"
-              @click="filter(filterButton)"
-              :class="{ 'selected': filterButton === selectedFilter }">{{
-          filterButton[0].toUpperCase() + filterButton.slice(1)
-        }}
-      </button>-->
+      <!--      <button type="button" class="selection__button" v-for="filterButton in allFilters"
+                    @click="filter(filterButton)"
+                    :class="{ 'selected': filterButton === selectedFilter }">{{
+                filterButton[0].toUpperCase() + filterButton.slice(1)
+              }}
+            </button>-->
     </div>
     <div>
-<!--      <ProductCardComponent v-for="product in paginatedProducts"
-                            @click="goToDetailPage(product.id)"
-                            v-bind:key="product.id"
-                            v-bind:product="product"/>-->
+      <ProductCardComponent/>
+      <!--      <ProductCardComponent v-for="product in paginatedProducts"
+                                  @click="goToDetailPage(product.id)"
+                                  v-bind:key="product.id"
+                                  v-bind:product="product"/>-->
     </div>
+    <!--    <div class="shop__pagination">
+          <ul>
+            <li v-for="page in this.totalPages" :key="page">
+              <button @click="goToPage(page)" :class="{'selected':page===standardPage}">{{ page }}</button>
+            </li>
+          </ul>
+        </div>-->
     <div class="shop__pagination">
-      <ul>
-        <li v-for="page in this.totalPages" :key="page">
-          <button @click="goToPage(page)" :class="{'selected':page===standardPage}">{{ page }}</button>
-        </li>
-      </ul>
+      <router-link v-if="page > 0" :to="{name: 'shop', query: { page: parseInt(page) - 1 },}">&laquo;</router-link>
+      <router-link v-for="product in Math.ceil(product.length / 8)" :class="{ active: page == product - 1 }" :to="{ name: 'shop',query: { page: product - 1 }, }">{{ product }}</router-link>
+      <router-link v-if="page < product.length / 8 - 1" :to="{ name: 'shop',query: { page: parseInt(page) + 1 },}">&raquo;</router-link>
     </div>
   </section>
   <FooterComponent/>
@@ -84,6 +90,15 @@ export default {
     totalPages() {
       return Math.ceil(this.filteredProducts.length / this.pageProducts);
     },
+    type() {
+      return this.$route.query.type;
+    },
+    page() {
+      return this.$route.query.page || 0;
+    },
+    product() {
+      return useProductsStore().products;
+    },
   },
   methods: {
     /*nextPage() {
@@ -97,7 +112,7 @@ export default {
       }
     },*/
     goToPage(page) {
-      this.$router.push({ path: this.$route.path, query: { page } });
+      this.$router.push({path: this.$route.path, query: {page}});
     },
     filter(tag) {
       this.selectedFilter = tag;

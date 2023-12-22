@@ -1,12 +1,12 @@
 <template>
   <div class="shop__items">
 <!--    <div v-if="products.length" v-for="product in products" :key="product.id" class="shop__item">-->
-    <div class="shop__item">
-      <img class="shop__item__img" src="@/assets/Panda1.jpeg" alt="product.description">
+    <div class="shop__item" v-for="product in products" :key="product.id">
+      <img class="shop__item__img" :src="product.image" alt="product.description">
       <div class="shop__item__info">
         <div class="shop__name-price">
-          <p>product</p>
-          <p>product</p>
+          <p>{{ product.title }}</p>
+          <p>{{ product.price  }}</p>
         </div>
         <router-link :to="{ name:'product', params: { id: product.id }}" class="shop__item__info__button">
           {{ productCheck }}
@@ -22,10 +22,11 @@ import {useProductStore} from '@/stores/products.js';
 export default {
   data() {
     return {
+      products: useProductStore(),
       productCheck: 'Check it out',
     };
   },
-  created() {
+  /*created() {
     const store = useProductStore();
     console.log('ProductCardComponent created');
     store.loadProducts();
@@ -34,7 +35,7 @@ export default {
     products() {
       return useProductStore().products;
     },
-  },
+  },*/
   props: [
       'product'
   ]
