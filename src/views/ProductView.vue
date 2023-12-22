@@ -38,9 +38,9 @@
           </ul>
         </div>-->
     <div class="shop__pagination">
-      <router-link v-if="page > 0" :to="{name: 'shop', query: { page: parseInt(page) - 1 },}">&laquo;</router-link>
+<!--      <router-link v-if="page > 0" :to="{name: 'shop', query: { page: parseInt(page) - 1 },}">&laquo;</router-link>
       <router-link v-for="product in Math.ceil(product.length / 8)" :class="{ active: page == product - 1 }" :to="{ name: 'shop',query: { page: product - 1 }, }">{{ product }}</router-link>
-      <router-link v-if="page < product.length / 8 - 1" :to="{ name: 'shop',query: { page: parseInt(page) + 1 },}">&raquo;</router-link>
+      <router-link v-if="page < product.length / 8 - 1" :to="{ name: 'shop',query: { page: parseInt(page) + 1 },}">&raquo;</router-link>-->
     </div>
   </section>
   <FooterComponent/>
