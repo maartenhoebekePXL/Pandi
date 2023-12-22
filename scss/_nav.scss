@@ -1,0 +1,92 @@
+@use 'base' as *;
+
+.nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: $margin-nav 0;
+  position: absolute;
+  z-index: 1;
+
+  &__logo {
+    width: $icon-width-logo;
+    position: absolute;
+    top: -15px;
+    left: $margin-nav-icon;
+  }
+
+  &__list, &__symbols {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    font-size: $font-size;
+    flex-wrap: wrap;
+  }
+
+  &__list {
+    width: 400px;
+  }
+
+  &__list-item {
+    margin: 0 $margin-nav-list;
+    text-decoration: none;
+    color: $secundary-color;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 2px;
+      width: 0;
+      background-color: $secundary-color;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+  }
+
+  &__symbols {
+    position: absolute;
+    right: $margin-nav-icon;
+  }
+
+  &__symbols-item {
+    &__icon {
+      color: $secundary-color;
+      position: relative;
+      margin-left: 20px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 115%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2px;
+        width: 0;
+        background-color: $secundary-color;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
+    }
+  }
+  @media screen and (max-width: 650px) {
+    &__list{
+      width: 265px;
+    }
+  }
+}

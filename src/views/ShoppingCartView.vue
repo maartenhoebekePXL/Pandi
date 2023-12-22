@@ -7,7 +7,9 @@
         <p class="shopping-cart__heading__paragraph">{{ cartP }}</p>
       </div>
       <div class="shopping-cart__items">
-        <ProductCardShoppingComponent />
+        <ProductCardShoppingComponent v-for="task in shoppingCart" :key="task.id"
+                                      v-bind:task="task"
+                                      v-on:changePriority="changeTaskPriority" />
         <ProductCardShoppingComponent />
         <ProductCardShoppingComponent />
         <ProductCardShoppingComponent />
@@ -27,13 +29,17 @@
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import ProductCardShoppingComponent from '@/components/ProductCardShoppingComponent.vue'
+import {useProductStore} from "@/stores/products.js";
+import {useUsersStore} from "@/stores/users.js";
 
 export default {
   components: { HeaderComponent, FooterComponent, ProductCardShoppingComponent },
   data() {
     return {
       cartTitle: 'Shopping Cart',
-      cartP: 'Last step before becoming part of the pandi army!'
+      cartP: 'Last step before becoming part of the pandi army!',
+      store: useProductStore(),
+      usersStore: useUsersStore(),
     }
   },
   methods: {

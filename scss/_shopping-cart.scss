@@ -1,0 +1,101 @@
+@use 'base' as *;
+
+.shopping-cart {
+  z-index: 0;
+  width: 100%;
+  @include textAlign();
+
+  &__heading {
+    background-color: $tertiary-color;
+
+    &__title {
+      padding-top: 80px;
+      font-size: 80px;
+      letter-spacing: 2px;
+    }
+
+    &__paragraph {
+      padding-top: 35px;
+      padding-bottom: 35px;
+      font-size: $font-size;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+    .cart-item {
+      margin: 20px;
+      background-color: $secundary-color;
+      border: none;
+      border-radius: 25px;
+      text-align: center;
+      max-width: 550px;
+      display: flex;
+      flex-direction: row;
+
+      img {
+        margin: 20px;
+        object-fit: cover;
+        height: 200px;
+      }
+
+      .cart-item-info {
+        color: $primary-color;
+        width: 200px;
+        margin: 20px 20px 0 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        position: relative;
+
+        .item-details {
+          height: 125px;
+          display: flex;
+          flex-direction: column;
+          font-size: $font-size;
+          align-items: start;
+          position: relative;
+
+          .item-details-title {
+            font-size: 28px;
+          }
+
+          .item-details-price {
+            position: absolute;
+            bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__total {
+    margin-top: 30px;
+    text-align: center;
+
+    p {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: $tertiary-color;
+      color: $secundary-color;
+      height: 55px;
+      width: 200px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all .2s ease-in-out;
+
+      &:hover {
+        background-color: $secundary-color;
+        color: $tertiary-color;
+      }
+    }
+  }
+}

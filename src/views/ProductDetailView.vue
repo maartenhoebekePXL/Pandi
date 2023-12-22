@@ -1,9 +1,12 @@
-<template>
-  <div>
-    <HeaderComponent />
+<!--<template>
+    <HeaderComponent/>
     <section class="product-view">
+      <div class="product-view__heading">
+        <h1 class="product-view__heading__title">{{ product.title }}</h1>
+        <p class="product-view__heading__paragraph">{{ product.description}}</p>
+      </div>
       <div class="product-view__details">
-        <img :src="product.image" :alt="product.title" class="product-view__image" />
+        <img :src="product.image" :alt="product.title" class="product-view__image"/>
         <div class="product-view__info">
           <h1 class="product-view__title">{{ product.title }}</h1>
           <p class="product-view__description">{{ product.description }}</p>
@@ -14,31 +17,73 @@
         </div>
       </div>
     </section>
-    <FooterComponent />
-  </div>
+    <FooterComponent/>
+</template>-->
+<template>
+  <HeaderComponent/>
+  <section class="product-view">
+    <div class="product-view__heading">
+      <h1 class="product-view__heading__title">title</h1>
+      <p class="product-view__heading__paragraph">paragraph</p>
+    </div>
+    <!--    v-on:submit.prevent="addTask()"-->
+    <div class="product-view-box">
+      <div class="product-view__details">
+        <img src="@/assets/Panda1.jpeg" alt="product.title" class="product-view__image"/>
+        <div class="product-view__details__info">
+            <p class="product-view__details__price">Price: </p>
+            <p class="product-view__details__vat">VAT: </p>
+            <p class="product-view__details__stock">Stock: </p>
+          <button class="addToCart__button" type="submit">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <!--      <ProductCardComponent v-for="product in paginatedProducts"
+                                  @click="goToDetailPage(product.id)"
+                                  v-bind:key="product.id"
+                                  v-bind:product="product"/>
+            <ProductCardComponent/>-->
+    </div>
+    <!--    <div class="shop__pagination">
+          <ul>
+            <li v-for="page in this.totalPages">
+              <button @click="goToPage" :class="{'selected':page===standardPage}">{{ page }}</button>
+            </li>
+          </ul>
+        </div>-->
+  </section>
+  <FooterComponent/>
 </template>
 
 <script>
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
-import { useProductStore } from '@/stores/products.js'
+import {useProductStore} from '@/stores/products.js'
+import {useUsersStore} from '@/stores/users.js'
 
 export default {
-  components: { HeaderComponent, FooterComponent },
+  components: {HeaderComponent, FooterComponent},
   data() {
     return {
-      productId: null,
-      product: null
+      productStore: useProductStore(),
+      userStore: useUsersStore(),
+    }
+  },
+  computed: {
+    product() {
+      return this.productStore.findProduct(this.productStore.selectedProduct)
+    },
+    amount() {
+      return this.userStore
     }
   },
   methods: {
-    addToCart() {
-      const store = useProductStore()
-      store.addToCart(this.product)
-      // Optionally, you can show a notification or perform other actions after adding to the cart
+    addToCart(product) {
+      this.userStore.addToCart(product)
     }
   },
-  async mounted() {
+  /*async mounted() {
     const store = useProductStore();
     await store.loadProducts();
 
@@ -47,7 +92,7 @@ export default {
 
     // Find the product by id from the store
     this.product = store.getProductById(this.productId);
-  },
+  },*/
 }
 </script>
 

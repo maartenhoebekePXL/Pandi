@@ -20,7 +20,7 @@ const router = createRouter({
             component: () => import('../views/ProductView.vue'),
         },
         {
-            path: '/productDetail/:id', // Updated path to include a dynamic parameter ':id'
+            path: '/productDetail', // Updated path to include a dynamic parameter ':id'
             name: 'productDetail',
             component: () => import('../views/ProductDetailView.vue'),
         },

@@ -1,0 +1,43 @@
+@use 'base' as *;
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  background-image: url("src/assets/Panda_jungle.jpg");
+
+  &__banner {
+    &__brand {
+      @include positioning(302px);
+    }
+
+    &__buttons {
+      display: flex;
+      @include positioning(680px);
+    }
+  }
+
+  .stock {
+    &__items {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.stock{
+  &__items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title{
+      margin-top: 2rem;
+      margin-bottom: 18px;
+    }
+  }
+}

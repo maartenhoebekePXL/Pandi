@@ -14,7 +14,7 @@
         <input type="text" :id="username" :placeholder="username" :name="username" required>
 
         <label class="loginLabels" :for="password"><b>{{ password }}</b></label>
-        <input type="password" :id="password" :placeholder="password" :name="Password" required>
+        <input type="password" :id="password" :placeholder="password" :name="password" required>
 
         <button :id="submitBtn" type="submit" value="Login">{{ login }}</button>
         <br>

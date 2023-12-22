@@ -1,0 +1,64 @@
+@use 'base' as *;
+
+.shop {
+  width: 100%;
+  z-index: 0;
+  @include textAlign();
+
+  &__heading {
+    background-color: $tertiary-color;
+
+    &__title {
+      padding-top: 80px;
+      font-size: 80px;
+      letter-spacing: 2px;
+    }
+
+    &__paragraph {
+      padding-top: 35px;
+      padding-bottom: 35px;
+      font-size: $font-size;
+    }
+  }
+
+  &__filters {
+    background-color: $secundary-color;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  &__item {
+    width: 400px;
+    height: 457px;
+    margin: 20px 25px 0 25px;
+    background-color: $secundary-color;
+    border-radius: 25px;
+    position: relative;
+
+    &__img {
+      margin-top: 20px;
+      object-fit: cover;
+      height: 300px;
+    }
+
+    &__info {
+      color: $primary-color;
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: right;
+    }
+
+    .shop__name-price {
+      display: flex;
+      font-size: $font-size;
+      margin: 10px 20px 0 20px;
+      justify-content: space-between;
+    }
+  }
+}

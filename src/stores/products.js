@@ -1,52 +1,111 @@
 import { defineStore } from 'pinia';
-import productsJson from '/src/data/products.json'
+import productsJson from '@/data/products.json';
 
-export const useProductStore = defineStore('main', {
-    state: () => ({
+export const useProductStore = defineStore('products', {
+     state: ()=>({
         products: productsJson,
         cart: [],
+        /*title: "",
+        description: "",
+        image: "",
+        price: "",
+        vat: "",
+        amount: "",*/
     }),
-
     actions: {
+        /*addTask() {
+            //ingevulde data in object steken
+            const newTask = {
+                id: this.shoppingCart.length + 1,
+                title: this.title,
+                description: this.description,
+                image: this.image,
+                price: this.price,
+                vat: this.vat,
+                amount: this.amount,
+            }
+
+            //object in lijst steken
+            this.shoppingCart.push(newTask);
+
+            //velden opnieuw leegmaken
+            this.description = "";
+            this.label = "";
+            this.priority = "";
+        },
+        changeTaskPriority(object) {
+            let task = this.shoppingCart.find(cart => cart.id = object.id);
+            if (task) {
+                task.priority = object.newPriority
+            }
+        },*/
         async loadProducts() {
             try {
-                // Assuming your JSON file is in the public/data directory
-                const response = await fetch('../assets/data/products.json');
-
-                if (!response.ok) {
-                    throw new Error('Failed to load products');
-                }
-
-                const products = await response.json();
-                this.setProducts(products);
+                this.setProducts(productsJson.products);
             } catch (error) {
                 console.error('Error loading products:', error);
             }
         },
-        addToCart(product) {
-            // Check if the product is already in the cart
-            const existingProduct = this.cart.find((item) => item.id === product.id);
+        addToCart(product, quantity) {
+            this.cart.push({ ...product, quantity });
+        },
+        setProducts(state, products) {
+            state.products = products;
+        },
+        getHighStockProducts: (state) => (count) => {
+            const productsWithStock = state.products.filter((product) => typeof product.stock === '50');
+            return productsWithStock.sort((a, b) => b.stock - a.stock).slice(0, count);
+        },
+        getProductById () {
+            return this.products.find((product) => product.id === productId);
+        },
+        emptyCart(){
+            this.cart = [];
+        }
+    },
+    getters: {
+        /*getHighStockProducts() {
+            return this.products.sort((a, b) => b.stock - a.stock).slice(0);
+        },*/
+    },
+    /*state: () => ({
+        products: productsJson,
+        items: [],
+        selectedProduct: 0,
+    }),
 
-            if (existingProduct) {
-                // If the product is already in the cart, increase the quantity
-                existingProduct.quantity += 1;
-            } else {
-                // If the product is not in the cart, add it with quantity 1
-                this.cart.push({ ...product, quantity: 1 });
+    actions: {
+        /!*async loadProducts() {
+            try {
+                this.setProducts(productsJson);
+            } catch (error) {
+                console.error('Error loading products:', error);
             }
+        },*!/
+        findProduct(id){
+            return this.products.find(product => product.id === id);
+        },
+        addToCart(item) {
+            this.items.push(item);
         },
     },
 
     getters: {
         getProductById: (state) => (productId) => {
-            // Find and return the product with the given ID
             return state.products.find((product) => product.id === productId);
         },
+        popularProducts(){
+            const sortedProducts = this.products.sort((a, b) => b.stock - a.stock)
+            return sortedProducts.slice(0, 3)
+        }
     },
 
     mutations: {
-        setProducts(products) {
-            this.products = products;
+        setProducts(state, products) {
+            state.products = products;
         },
-    },
+        setSelectedProduct(state, productId) {
+            state.selectedProduct = productId;
+        },
+    },*/
 });

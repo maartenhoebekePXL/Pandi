@@ -10,8 +10,6 @@
       <div class="nav__symbols">
         <router-link class="nav__symbols-item" to="/shoppingCart"><i
           class="nav__symbols-item__icon fa-solid fa-basket-shopping"></i></router-link>
-        <router-link class="nav__symbols-item" to="login"><i class="nav__symbols-item__icon fa-solid fa-bars"
-                                                             id="nav__icon-3"></i></router-link>
       </div>
     </nav>
   </header>

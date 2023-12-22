@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "voornaam": "Maarten",
+      "name": "Hoebeke",
+      "email": "12001844@student.pxl.be",
+      "password": "pswd1",
+      "city": "Hasselt",
+      "zip": "3500",
+      "street": "Elfde-Liniestraat",
+      "number": "24"
+    }
+  ]
+}
